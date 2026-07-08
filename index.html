@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graduación Generación 2020-2026 - María Montessori</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #071324;
+            --bg-medium: #0d213b;
+            --bg-light: #163254;
+            --gold: #d4af37;
+            --gold-light: #f3e5ab;
+            --text-light: #e0e6ed;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Destellos (Sparkles) */
+        .sparkle {
+            position: absolute;
+            background: radial-gradient(circle, #fff 10%, var(--gold) 40%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            animation: twinkle 4s infinite ease-in-out;
+            opacity: 0;
+        }
+
+        @keyframes twinkle {
+            0% { transform: scale(0.5); opacity: 0; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+            100% { transform: scale(0.5); opacity: 0; }
+        }
+
+        /* Intro Pergamino */
+        #intro-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--bg-dark);
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 1s ease, visibility 1s ease;
+        }
+
+        .parchment {
+            background: linear-gradient(135deg, var(--bg-medium), var(--bg-dark));
+            border: 2px solid var(--gold);
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+            max-width: 90%;
+            width: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .parchment::before, .parchment::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 15px;
+            background: var(--gold);
+            left: 0;
+        }
+
+        .parchment::before { top: 0; }
+        .parchment::after { bottom: 0; }
+
+        .parchment img {
+            max-width: 120px;
+            margin-bottom: 20px;
+        }
+
+        .parchment h1 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .parchment p {
+            font-size: 1rem;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+
+        .btn-abrir {
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 12px 30px;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .btn-abrir:hover {
+            background: var(--gold);
+            color: var(--bg-dark);
+        }
+
+        /* Contenido Principal */
+        #main-content {
+            display: none;
+            padding-bottom: 80px;
+            position: relative;
+            z-index: 10;
+        }
+
+        section {
+            padding: 60px 20px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h2, h3, .title {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        h2 { font-size: 2.5rem; }
+        h3 { font-size: 1.8rem; margin-top: 30px; }
+        
+        p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: var(--gold);
+            margin: 30px auto;
+        }
+
+        /* Botones Interactivos */
+        .btn {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--bg-dark);
+            padding: 15px 30px;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid var(--gold);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+            background: transparent;
+            color: var(--gold);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+        }
+
+        .btn-outline:hover {
+            background: var(--gold);
+            color: var(--bg-dark);
+        }
+
+        /* Layouts específicos */
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .schedule-item {
+            background: var(--bg-medium);
+            padding: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 8px;
+        }
+
+        .schedule-item h4 {
+            color: var(--gold-light);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .gallery-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            border-radius: 10px;
+            border: 2px solid var(--gold);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        /* Pases de Acceso */
+        .ticket {
+            background: linear-gradient(135deg, var(--bg-light), var(--bg-medium));
+            border: 2px dashed var(--gold);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px auto;
+            max-width: 400px;
+            position: relative;
+        }
+
+        .ticket::before, .ticket::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 30px;
+            height: 30px;
+            background: var(--bg-dark);
+            border-radius: 50%;
+            transform: translateY(-50%);
+        }
+        .ticket::before { left: -16px; border-right: 2px dashed var(--gold); }
+        .ticket::after { right: -16px; border-left: 2px dashed var(--gold); }
+
+        /* Tabs de Alumnos */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 10px 20px;
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .tab-btn.active {
+            background: var(--gold);
+            color: var(--bg-dark);
+        }
+
+        .tab-content {
+            display: none;
+            text-align: left;
+            background: var(--bg-medium);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .student-list {
+            list-style: none;
+            columns: 1;
+        }
+
+        @media(min-width: 600px) {
+            .student-list { columns: 2; gap: 20px; }
+        }
+
+        .student-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Música */
+        #music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            z-index: 50;
+            color: var(--bg-dark);
+            font-size: 1.5rem;
+            border: none;
+        }
+
+        /* Animaciones de Entrada (Scroll) */
+        .animate-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .animate-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="intro-screen">
+        <div class="parchment">
+            <img src="assets/logo.png" alt="Logo María Montessori" onerror="this.style.display='none'">
+            <h1>Escuela Primaria<br>María Montessori</h1>
+            <p>Generación 2020 - 2026</p>
+            <button class="btn-abrir" onclick="abrirInvitacion()">Abrir Invitación</button>
+        </div>
+    </div>
+
+    <button id="music-control" onclick="toggleMusic()">🔊</button>
+    <audio id="bg-music" loop>
+        <source src="assets/musica.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="main-content">
+        
+        <section>
+            <img src="assets/logo.png" alt="Logo" style="max-width: 150px; margin-bottom: 20px;" class="animate-up" onerror="this.style.display='none'">
+            <h2 class="animate-up">¡Nos Graduamos!</h2>
+            <div class="divider animate-up"></div>
+            <p class="animate-up">Con gran alegría y orgullo, tenemos el honor de invitarle a la ceremonia de clausura de la</p>
+            <h3 class="animate-up">Generación 2020 - 2026</h3>
+            <p class="animate-up" style="margin-top: 20px; font-weight: 600; color: var(--gold-light);">Escuela Primaria "María Montessori"</p>
+            <p class="animate-up">Turno Matutino</p>
+        </section>
+
+        <section>
+            <h2 class="animate-up">Detalles del Evento</h2>
+            <div class="divider animate-up"></div>
+            <h3 class="animate-up">15 de Julio 2026</h3>
+            
+            <div class="schedule-grid">
+                <div class="schedule-item animate-up">
+                    <h4>7:45 AM</h4>
+                    <p>Ingreso de Alumnos</p>
+                </div>
+                <div class="schedule-item animate-up">
+                    <h4>8:15 AM</h4>
+                    <p>Ingreso de Invitados</p>
+                </div>
+                <div class="schedule-item animate-up">
+                    <h4>8:40 AM</h4>
+                    <p>Inicio del Evento</p>
+                </div>
+            </div>
+
+            <h3 class="animate-up" style="margin-top: 40px;">Ubicación</h3>
+            <p class="animate-up">Escuela Primaria María Montessori</p>
+            <a href="https://maps.app.goo.gl/FcYxe5jA3nivc8bv7?g_st=aw" target="_blank" class="btn animate-up">Ver en Google Maps</a>
+        </section>
+
+        <section>
+            <h2 class="animate-up">Autoridades</h2>
+            <div class="divider animate-up"></div>
+            
+            <div class="animate-up" style="margin-bottom: 30px;">
+                <p style="color: var(--gold); font-size: 0.9rem; text-transform: uppercase;">Directora Escolar</p>
+                <p>Mtra. Marlen González Cobos</p>
+            </div>
+            
+            <div class="animate-up" style="margin-bottom: 40px;">
+                <p style="color: var(--gold); font-size: 0.9rem; text-transform: uppercase;">Subdirector Escolar</p>
+                <p>Dr. Miguel Ángel Valladares Armijo</p>
+            </div>
+
+            <h3 class="animate-up">Padrino de Generación</h3>
+            <div class="divider animate-up" style="width: 40px;"></div>
+            <div class="animate-up">
+                <p style="font-size: 1.3rem; color: var(--gold-light);">Mtro. César Agustín Hernández Pérez</p>
+                <p style="font-size: 0.9rem;">Diputado Federal, Distrito 30<br>Chicoloapan - Chimalhuacán</p>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="animate-up">Nuestros Grupos</h2>
+            <div class="divider animate-up"></div>
+            
+            <div class="animate-up" style="margin-bottom: 20px;">
+                <p><strong>6°A:</strong> Profra. Guadalupe Estrada Gómez</p>
+                <p><strong>6°B:</strong> Mtra. Nallely Venegas Herrera</p>
+                <p><strong>6°C:</strong> Mtra. María del Rosario Ortega Fuerte</p>
+            </div>
+
+            <div class="gallery-grid">
+                <img src="assets/6a.jpg" alt="Grupo 6A" class="animate-up" onerror="this.style.display='none'">
+                <img src="assets/6b.jpg" alt="Grupo 6B" class="animate-up" onerror="this.style.display='none'">
+                <img src="assets/6c.jpg" alt="Grupo 6C" class="animate-up" onerror="this.style.display='none'">
+            </div>
+        </section>
+
+        <section>
+            <h2 class="animate-up">Generación 2020-2026</h2>
+            <p class="animate-up">Consulta la lista de graduados por grupo</p>
+            <div class="divider animate-up"></div>
+
+            <div class="tabs animate-up">
+                <button class="tab-btn active" onclick="openTab('grupoA')">6° A</button>
+                <button class="tab-btn" onclick="openTab('grupoB')">6° B</button>
+                <button class="tab-btn" onclick="openTab('grupoC')">6° C</button>
+            </div>
+
+            <div id="grupoA" class="tab-content active animate-up">
+                <ul class="student-list">
+                    <li>AGUILAR OCAMPO MATEO</li>
+                    <li>ALCANTAR ORTIZ BERENICE</li>
+                    <li>ANTONIO CEDILLO YETZALI</li>
+                    <li>BALLESTEROS MEJIA KIMBERLY YAMILETH</li>
+                    <li>BUCHAN SALAS EVAN SAID</li>
+                    <li>CASTILLO RANGEL FRANCO EMMANUELLE</li>
+                    <li>CASTRO RODRIGUEZ SCARLETT LILIANA</li>
+                    <li>CORREA MOLINA DEREK ALBERTO</li>
+                    <li>DIAZ BRISEÑO DORIAN ALEXANDER</li>
+                    <li>FUNES AGUIRRE RENATA ITZAE</li>
+                    <li>GAMEZ HERNANDEZ KATERINE MELINA</li>
+                    <li>GONZALEZ BAUTISTA JOSTIN ALEXANDER</li>
+                    <li>GONZALEZ SOSA KARINA NATALY</li>
+                    <li>HERRERA CONTRERAS EDUARDO ALEXANDER</li>
+                    <li>HUITRON MORENO JAIR</li>
+                    <li>LIBRADO QUINTANAR MATEO ERICK</li>
+                    <li>LOPEZ LOPEZ YOVANNY</li>
+                    <li>MEJIA NAVA EDWARD GUILLERMO</li>
+                    <li>MELENDEZ RUBIO ESTRELLA ELUE</li>
+                    <li>MORA HERNANDEZ LEONARDO</li>
+                    <li>MORALES ALMONTE ARTURO</li>
+                    <li>MORENO ISIDORO MELANY MAYTE</li>
+                    <li>ORTEGA HERNANDEZ FERNANDA VALENTINA</li>
+                    <li>ORTIZ VALDEZ MICHEL ALEXANDER</li>
+                    <li>RAMIREZ ROJAS SAID ALEJANDRO</li>
+                    <li>RASCON SUSANO FATIMA</li>
+                    <li>RODRIGUEZ RODRIGUEZ KATERIN YAMILET</li>
+                    <li>ROSAS LOPEZ MICHELLE</li>
+                    <li>SAUCEDO JASSO ITZEL EDITH</li>
+                    <li>SEVERIANO CRUZ JESUS FRANCISCO</li>
+                    <li>SOTO GOMEZ ALISON NAHOMI</li>
+                    <li>TORRES MODESTO AMAURY</li>
+                    <li>VILLANUEVA LOPEZ LUIS DANIEL</li>
+                </ul>
+            </div>
+
+            <div id="grupoB" class="tab-content animate-up">
+                <ul class="student-list">
+                    <li>ALVAREZ SERRANO SOFIA MAYRIN</li>
+                    <li>AREVALO SANCHEZ DILAN RAYMUNDO</li>
+                    <li>CARDOSO FRAGOSO EDGAR IBRAHIM</li>
+                    <li>CASTILLO LECHUGA ATZKARI DANAE</li>
+                    <li>CERVANTES CORVERA BARBARA GERALDINE</li>
+                    <li>CRUZ ANDRADE KIMBERLY GERALDINE</li>
+                    <li>CRUZ CURIEL GABRIEL ALEXANDER</li>
+                    <li>DE LA CRUZ CRUZ ALEXA NATASHA</li>
+                    <li>ENRIQUEZ CANO FRIDA IVANNA</li>
+                    <li>ENRIQUEZ RENDON PAULA ALONDRA</li>
+                    <li>GONZALEZ SUAREZ MIGUEL ANGEL</li>
+                    <li>HERNANDEZ AGUILAR SOPHIA GUADALUPE</li>
+                    <li>HERNANDEZ GARCIA AMAIA ABIGAIL</li>
+                    <li>HERNANDEZ LOPEZ VALERIA GISELA</li>
+                    <li>HINOJOSA SUAREZ MARIO</li>
+                    <li>JARAMILLO SANTOS LOURDES YUSET</li>
+                    <li>LOPEZ RUIZ BRANDON RODRIGO</li>
+                    <li>MALDONADO HERNANDEZ EMILIO ALEJANDRO</li>
+                    <li>MARTINEZ VARELA CHRISTOPHER ALAN</li>
+                    <li>NAVA ESTRADA PEDRO ALFONSO</li>
+                    <li>OCELOTL SOLIS FRANCISCO TADEO</li>
+                    <li>PEÑA HERNANDEZ ANGEL GABRIEL</li>
+                    <li>PESCADOR VIVEROS GABRIELA ATZINAMEYALLI</li>
+                    <li>PINTOR ISLAS XIMENA ALEXA</li>
+                    <li>RAMIREZ VALVERDE RODRIGO</li>
+                    <li>RODRIGUEZ GALLEGOS FRANCISCO YAHIR</li>
+                    <li>RODRIGUEZ MALAGON LEONEL</li>
+                    <li>SALAZAR GARCIA ROGER ALEXANDER</li>
+                    <li>SAUCEDO PALOMO DAFNE</li>
+                    <li>TORRES ESQUIVEL ALEXA KRYSTAL</li>
+                    <li>TREJO SALVADOR ZOE</li>
+                    <li>TRONCOSO DIAZ CRISTIAN LEONEL</li>
+                    <li>VILLA HERRERA ALISSON YAMILETH</li>
+                </ul>
+            </div>
+
+            <div id="grupoC" class="tab-content animate-up">
+                <ul class="student-list">
+                    <li>ALVARADO MORALES NATHALY SOFIA</li>
+                    <li>AQUINO VARGAS MIGUEL ADIEL</li>
+                    <li>CASTILLO GRACIA DIEGO IVAN</li>
+                    <li>CIPRES BARRERA DIEGO SANTIAGO</li>
+                    <li>DIAZ BEJAR MAILEN</li>
+                    <li>DOMINGUEZ GUTIERREZ SANTIAGO</li>
+                    <li>FLORES CHAVARRIA PABLO AARON</li>
+                    <li>GOMEZ HERNANDEZ NATHALIA JULIET</li>
+                    <li>GONZALEZ CORTES ULISES</li>
+                    <li>GONZALEZ CRUZ ALLISON PAULETTE</li>
+                    <li>GUZMAN CRUZ SWAMI YAMILETH</li>
+                    <li>HERNANDEZ ESCAMILLA JESUS EMANUEL</li>
+                    <li>HERNANDEZ RAMIREZ MAURICIO</li>
+                    <li>HERNANDEZ SOLIS MEREDITH SAMANTHA</li>
+                    <li>JIMENEZ ARANDA LOGAN</li>
+                    <li>MAGAÑA PIMENTEL JADE ALEXIA</li>
+                    <li>MARCIAL HERNANDEZ AXEL MIGUEL</li>
+                    <li>MARTINEZ NUÑEZ ERICK SAMUEL</li>
+                    <li>MELENDREZ TAPIA RAUL JAVIER</li>
+                    <li>MENDOZA SALGADO OMAR</li>
+                    <li>MORAN CELEDONIO LIZAIDA BETANIA</li>
+                    <li>OJEDA CHAVEZ DANIELA</li>
+                    <li>OLIVA TORRES LUCIA MAILEN</li>
+                    <li>PABLO LINARES ERICK ALEXANDER</li>
+                    <li>PADIERNA BARRERA VIOLETA</li>
+                    <li>PARRA HERNANDEZ ANGEL</li>
+                    <li>RAMIREZ CAMPOS EMI DANNAE</li>
+                    <li>RAMIREZ LINARES VANIA</li>
+                    <li>RODRIGUEZ BISTREN SANTIAGO</li>
+                    <li>RODRIGUEZ RAMIREZ MELANIE ZOE</li>
+                    <li>SANCHEZ BAUTISTA LEONARDO</li>
+                    <li>TOSQUI MARTINEZ JOSE ANGEL</li>
+                    <li>VELAZCO DIAZ DYLAN</li>
+                    <li>VILLA ESQUIVEL ANA ISABELLA</li>
+                    <li>VILLEGAS ROJAS MEGAN NAOMI</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="animate-up">Galería de Recuerdos</h2>
+            <div class="divider animate-up"></div>
+            <p class="animate-up">Ayúdanos a recopilar los mejores momentos de esta generación. Sube tus fotos al siguiente enlace:</p>
+            <a href="https://drive.google.com/drive/folders/1KqHzS00FdDp6aeGaTX3WmUmie99CnpvG?usp=sharing" target="_blank" class="btn btn-outline animate-up">Subir Fotos a Galería</a>
+        </section>
+
+        <section>
+            <h2 class="animate-up">Tu Acceso</h2>
+            <div class="ticket animate-up">
+                <img src="assets/logo.png" alt="Logo" style="max-width: 60px; margin-bottom: 10px;" onerror="this.style.display='none'">
+                <h3 style="margin-top: 0;">PASE DE INVITADO</h3>
+                <p style="font-size: 0.9rem; color: var(--gold); margin-top: 10px;">Válido para la Ceremonia de Clausura</p>
+                <p style="font-size: 0.8rem; margin-top: 5px;">Generación 2020-2026</p>
+            </div>
+            <p class="animate-up" style="font-size: 0.9rem;">Presenta esta invitación digital en la entrada.</p>
+        </section>
+
+    </div>
+
+    <script>
+        // Variables de Música
+        const audio = document.getElementById("bg-music");
+        const musicBtn = document.getElementById("music-control");
+        let isPlaying = false;
+
+        // Función para abrir la invitación
+        function abrirInvitacion() {
+            document.getElementById('intro-screen').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('intro-screen').style.visibility = 'hidden';
+                document.getElementById('main-content').style.display = 'block';
+                iniciarAnimaciones();
+                crearDestellos();
+                // Intentar reproducir música automáticamente
+                audio.play().then(() => {
+                    isPlaying = true;
+                    musicBtn.innerHTML = "⏸";
+                }).catch(e => {
+                    console.log("Auto-play prevenido por el navegador.");
+                });
+            }, 1000);
+        }
+
+        // Control de música
+        function toggleMusic() {
+            if(isPlaying) {
+                audio.pause();
+                musicBtn.innerHTML = "🔊";
+            } else {
+                audio.play();
+                musicBtn.innerHTML = "⏸";
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // Animación de entrada de textos al hacer scroll
+        function iniciarAnimaciones() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.animate-up').forEach((el) => {
+                observer.observe(el);
+            });
+        }
+
+        // Generar destellos flotantes en el fondo
+        function crearDestellos() {
+            const numSparkles = 25;
+            for(let i = 0; i < numSparkles; i++) {
+                let sparkle = document.createElement('div');
+                sparkle.classList.add('sparkle');
+                // Posición aleatoria
+                sparkle.style.left = Math.random() * 100 + 'vw';
+                sparkle.style.top = Math.random() * 200 + 'vh'; // Cubre el scroll
+                // Tamaño aleatorio
+                let size = Math.random() * 4 + 2;
+                sparkle.style.width = size + 'px';
+                sparkle.style.height = size + 'px';
+                // Retraso y duración aleatoria
+                sparkle.style.animationDelay = Math.random() * 5 + 's';
+                sparkle.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                
+                document.body.appendChild(sparkle);
+            }
+        }
+
+        // Función para las Tabs de los grupos
+        function openTab(tabName) {
+            let i, tabcontent, tablinks;
+            
+            // Ocultar todos los contenidos
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            
+            // Quitar clase active de los botones
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            
+            // Mostrar el contenido actual y añadir clase active al botón presionado
+            document.getElementById(tabName).classList.add("active");
+            event.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
