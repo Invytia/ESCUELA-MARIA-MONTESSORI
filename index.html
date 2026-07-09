@@ -177,7 +177,7 @@
         /* ----- CONTENIDO PRINCIPAL ----- */
         #main-content {
             display: none;
-            padding-bottom: 100px;
+            padding-bottom: 20px;
             position: relative;
             z-index: 10;
         }
@@ -238,6 +238,7 @@
             transition: all 0.4s ease;
             border: none;
             box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+            cursor: pointer;
         }
 
         .btn-primary:hover {
@@ -258,39 +259,71 @@
             color: var(--gold-light);
         }
 
-        /* Galería */
-        .gallery-grid {
+        /* ----- FOTOS A LO ANCHO (FULL WIDTH) ----- */
+        .full-width-gallery {
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
             display: flex;
             flex-direction: column;
-            gap: 40px;
-            margin-top: 50px;
+            gap: 5px;
         }
 
-        .photo-frame {
-            position: relative;
-            padding: 10px;
-            background: var(--navy-800);
-            border: 1px solid var(--glass-border);
+        .full-width-gallery img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            cursor: pointer;
+            filter: grayscale(10%) contrast(110%);
+            transition: filter 0.5s ease, opacity 0.3s;
+        }
+
+        .full-width-gallery img:hover {
+            filter: grayscale(0%) contrast(100%);
+            opacity: 0.9;
+        }
+
+        /* Lightbox Modal */
+        #imageModal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(3, 8, 17, 0.95);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+        }
+
+        #imageModal img {
+            max-width: 95%;
+            max-height: 90vh;
+            border: 1px solid var(--gold-solid);
+            box-shadow: 0 0 30px rgba(0,0,0,0.8);
             border-radius: 4px;
         }
 
-        .photo-frame img {
-            width: 100%;
-            display: block;
-            filter: grayscale(20%) contrast(110%);
-            transition: filter 0.5s ease;
-        }
-
-        .photo-frame:hover img {
-            filter: grayscale(0%) contrast(100%);
-        }
-
-        .photo-caption {
-            font-family: 'Cormorant Garamond', serif;
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
             color: var(--gold-solid);
-            font-size: 1.5rem;
-            margin-top: 15px;
-            font-style: italic;
+            font-size: 50px;
+            font-weight: 300;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .close-modal:hover {
+            color: #fff;
+            transform: scale(1.1);
         }
 
         /* Tabs Editorial */
@@ -414,6 +447,17 @@
             transform: scale(1.1);
         }
 
+        /* Marca de agua */
+        .watermark {
+            text-align: center;
+            padding: 40px 20px;
+            font-family: 'Montserrat', sans-serif;
+            color: rgba(255, 255, 255, 0.15);
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            font-size: 0.75rem;
+        }
+
         /* ----- CLASES DE ANIMACIÓN (Intersection Observer) ----- */
         .reveal {
             opacity: 0;
@@ -457,6 +501,12 @@
         </div>
     </div>
 
+    <!-- Lightbox Modal para las fotos -->
+    <div id="imageModal">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <img id="modalImage" src="" alt="Vista ampliada">
+    </div>
+
     <!-- Audio Player -->
     <button id="music-control" onclick="toggleMusic()">♪</button>
     <audio id="bg-music" loop>
@@ -466,19 +516,30 @@
     <!-- Contenido Principal -->
     <div id="main-content">
         
-        <!-- Portada -->
-        <section style="padding-top: 100px;">
+        <!-- Portada con Logo incluido -->
+        <section style="padding-top: 80px;">
+            <img src="assets/logo.png" alt="Logo María Montessori" class="reveal reveal-up" style="max-width: 140px; margin: 0 auto 30px; display: block; filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));" onerror="this.style.display='none'">
             <p class="subtitle reveal reveal-up d-1">Tenemos el honor de invitarle</p>
             <h2 class="text-gold reveal reveal-up d-2">¡Nos Graduamos!</h2>
             <div class="divider reveal reveal-scale d-3"></div>
             <p class="reveal reveal-up d-4" style="max-width: 600px; margin: 0 auto;">Celebramos el esfuerzo, la dedicación y el inicio de una nueva etapa de la</p>
             
-            <!-- Salto de línea corregido aquí -->
             <h3 class="reveal reveal-up d-5 text-gold" style="margin-top: 30px; font-size: 2.5rem; line-height: 1.2;">
                 Generación<br>2020 - 2026
             </h3>
             
             <p class="reveal reveal-up d-5" style="letter-spacing: 2px;">ESCUELA PRIMARIA "MARÍA MONTESSORI"<br><span style="font-size: 0.8rem; color: var(--text-muted);">TURNO MATUTINO</span></p>
+        </section>
+
+        <!-- Fotos de los Grupos (Ancho Completo) -->
+        <section style="max-width: 100%; padding: 0 0 60px 0;">
+            <p class="subtitle reveal reveal-up" style="margin-bottom: 30px;">Nuestra Generación</p>
+            <div class="full-width-gallery">
+                <img src="assets/6a.jpg" alt="Grupo 6A" onclick="openModal(this.src)" class="reveal reveal-up" title="Toca para ampliar" onerror="this.style.display='none'">
+                <img src="assets/6b.jpg" alt="Grupo 6B" onclick="openModal(this.src)" class="reveal reveal-up d-1" title="Toca para ampliar" onerror="this.style.display='none'">
+                <img src="assets/6c.jpg" alt="Grupo 6C" onclick="openModal(this.src)" class="reveal reveal-up d-2" title="Toca para ampliar" onerror="this.style.display='none'">
+            </div>
+            <p class="reveal reveal-up" style="font-size: 0.8rem; color: var(--text-muted); margin-top: 20px; font-style: italic;">Toca las imágenes para verlas en pantalla completa.</p>
         </section>
 
         <!-- Detalles del Evento -->
@@ -538,29 +599,15 @@
             </div>
         </section>
 
-        <!-- Docentes y Fotos -->
+        <!-- Docentes Titulares -->
         <section>
             <p class="subtitle reveal reveal-up">Nuestros Guías</p>
             <h2 class="text-gold reveal reveal-up d-1">Docentes Titulares</h2>
             
-            <div class="gallery-grid">
-                <!-- Grupo A -->
-                <div class="photo-frame reveal reveal-left d-2">
-                    <img src="assets/6a.jpg" alt="Grupo 6A" onerror="this.style.display='none'">
-                    <p class="photo-caption">6° A - Profra. Guadalupe Estrada Gómez</p>
-                </div>
-                
-                <!-- Grupo B -->
-                <div class="photo-frame reveal reveal-right d-3">
-                    <img src="assets/6b.jpg" alt="Grupo 6B" onerror="this.style.display='none'">
-                    <p class="photo-caption">6° B - Mtra. Nallely Venegas Herrera</p>
-                </div>
-
-                <!-- Grupo C -->
-                <div class="photo-frame reveal reveal-left d-4">
-                    <img src="assets/6c.jpg" alt="Grupo 6C" onerror="this.style.display='none'">
-                    <p class="photo-caption">6° C - Mtra. María del Rosario Ortega Fuerte</p>
-                </div>
+            <div class="glass-panel reveal reveal-scale d-2" style="margin-top: 30px; padding: 40px 20px; text-align: left;">
+                <p class="reveal reveal-up d-3" style="margin-bottom: 20px; font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 10px;"><strong class="text-gold" style="font-size: 1.3rem; font-family: 'Cormorant Garamond', serif;">6° A:</strong> Profra. Guadalupe Estrada Gómez</p>
+                <p class="reveal reveal-up d-4" style="margin-bottom: 20px; font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 10px;"><strong class="text-gold" style="font-size: 1.3rem; font-family: 'Cormorant Garamond', serif;">6° B:</strong> Mtra. Nallely Venegas Herrera</p>
+                <p class="reveal reveal-up d-5" style="font-size: 1.1rem;"><strong class="text-gold" style="font-size: 1.3rem; font-family: 'Cormorant Garamond', serif;">6° C:</strong> Mtra. María del Rosario Ortega Fuerte</p>
             </div>
         </section>
 
@@ -694,13 +741,28 @@
             </div>
         </section>
 
+        <!-- Confirmación de Asistencia -->
+        <section>
+            <p class="subtitle reveal reveal-up">RSVP</p>
+            <h2 class="text-gold reveal reveal-up d-1">Confirmación de Asistencia</h2>
+            <div class="glass-panel reveal reveal-blur d-2" style="margin-top: 30px;">
+                <p class="reveal reveal-up d-3" style="font-size: 1.1rem; margin-bottom: 25px;">Por favor, confirma tu asistencia para que podamos esperarte con los brazos abiertos en este día tan especial.</p>
+                <a href="https://wa.me/525568618506?text=Hola,%20confirmo%20mi%20asistencia%20a%20la%20ceremonia%20de%20clausura." target="_blank" class="btn-primary reveal reveal-up d-4">
+                    Confirmar por WhatsApp
+                </a>
+                <p class="reveal reveal-up d-5" style="margin-top: 25px; font-size: 1.4rem; font-weight: 600; color: var(--gold-light);">
+                    +52 55 6861 8506
+                </p>
+            </div>
+        </section>
+
         <!-- Galería Compartida -->
         <section>
             <p class="subtitle reveal reveal-up">Memorias</p>
             <h2 class="text-gold reveal reveal-up d-1">Galería de Recuerdos</h2>
             <div class="divider reveal reveal-scale d-2"></div>
             <p class="reveal reveal-up d-3">Ayúdanos a inmortalizar los mejores momentos de esta generación. Sube tus fotografías a nuestra galería compartida.</p>
-            <a href="https://drive.google.com/drive/folders/1KqHzS00FdDp6aeGaTX3WmUmie99CnpvG?usp=sharing" target="_blank" class="btn-primary reveal reveal-up d-4">Compartir Fotografías</a>
+            <a href="https://drive.google.com/drive/folders/1KqHzS00FdDp6aeGaTX3WmUmie99CnpvG?usp=sharing" target="_blank" class="btn-primary btn-outline reveal reveal-up d-4" style="margin-top: 25px;">Compartir Fotografías</a>
         </section>
 
         <!-- Pases de Acceso -->
@@ -713,6 +775,11 @@
             </div>
             <p class="reveal reveal-up d-1" style="font-size: 0.85rem; color: var(--text-muted); letter-spacing: 1px;">FAVOR DE MOSTRAR ESTA INVITACIÓN DIGITAL EN EL ACCESO.</p>
         </section>
+
+        <!-- Marca de Agua Final -->
+        <div class="watermark reveal reveal-up">
+            Invytia Premium
+        </div>
 
     </div>
 
@@ -743,11 +810,30 @@
                     // Reproducir música
                     audio.play().then(() => {
                         isPlaying = true;
-                        musicBtn.innerHTML = "||"; // Icono de pausa simple
+                        musicBtn.innerHTML = "||"; 
                     }).catch(e => console.log("Auto-play prevenido por el navegador."));
                 }, 800);
             }, 500);
         }
+
+        // Funciones del Modal (Lightbox) para imágenes
+        function openModal(src) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = 'flex';
+            modalImg.src = src;
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        // Cerrar modal al hacer clic en el fondo
+        document.getElementById('imageModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
 
         // Control de música
         function toggleMusic() {
@@ -773,8 +859,6 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('active');
-                        // Opcional: dejar de observar una vez animado
-                        // observer.unobserve(entry.target); 
                     }
                 });
             }, observerOptions);
@@ -812,7 +896,6 @@
             tabcontent = document.getElementsByClassName("tab-content");
             for (i = 0; i < tabcontent.length; i++) {
                 tabcontent[i].classList.remove("active");
-                // Resetear animaciones de las listas dentro del tab
                 let listItems = tabcontent[i].querySelectorAll('li');
                 listItems.forEach(li => {
                     li.classList.remove('reveal', 'reveal-up', 'active');
@@ -835,7 +918,6 @@
                 li.style.transform = 'translateY(10px)';
                 li.style.transition = 'all 0.4s ease';
                 
-                // Pequeño delay escalonado para los primeros 20 elementos para no saturar
                 let delay = index < 20 ? index * 50 : 0; 
                 setTimeout(() => {
                     li.style.opacity = '1';
