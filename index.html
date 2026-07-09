@@ -4,21 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clausura Generación 2020-2026 | María Montessori</title>
-    <!-- Fuentes Premium: Cormorant Garamond para títulos editoriales, Montserrat para lectura limpia -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Paleta Premium Editorial */
+            /* Paleta Premium Editorial - Tonos Plata / Platino */
             --navy-900: #030811;
             --navy-800: #0a1426;
             --navy-700: #12223d;
-            --gold-solid: #D4AF37;
-            --gold-light: #F9E596;
-            --gold-gradient: linear-gradient(135deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
-            --text-light: #f0f4f8;
-            --text-muted: #a0aec0;
+            --silver-solid: #D1D5DB; /* Base plata */
+            --silver-light: #F9FAFB; /* Plata muy claro / blanco brillante */
+            --silver-gradient: linear-gradient(135deg, #9CA3AF, #F3F4F6, #D1D5DB, #FFFFFF, #6B7280); /* Gradiente platino */
+            --text-light: #f3f4f6;
+            --text-muted: #9ca3af;
             --glass-bg: rgba(18, 34, 61, 0.4);
-            --glass-border: rgba(212, 175, 55, 0.3);
+            --glass-border: rgba(209, 213, 219, 0.3); /* Borde plata con transparencia */
         }
 
         * {
@@ -28,11 +27,12 @@
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Jost', sans-serif;
             background-color: var(--navy-900);
             color: var(--text-light);
             overflow-x: hidden;
             position: relative;
+            font-size: 18px; /* Aumento del tamaño base de la letra */
         }
 
         /* Fondo dinámico sutil */
@@ -48,16 +48,16 @@
             pointer-events: none;
         }
 
-        /* Partículas de polvo de oro */
-        .gold-dust {
+        /* Partículas de polvo de plata */
+        .silver-dust {
             position: absolute;
-            background: var(--gold-light);
+            background: var(--silver-light);
             border-radius: 50%;
             pointer-events: none;
             z-index: -1;
             opacity: 0;
             animation: float-dust 8s infinite ease-in-out;
-            box-shadow: 0 0 10px var(--gold-solid);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
         }
 
         @keyframes float-dust {
@@ -66,36 +66,36 @@
             100% { transform: translateY(-100px) scale(0.5); opacity: 0; }
         }
 
-        /* Efectos de texto metálico */
-        .text-gold {
-            background: var(--gold-gradient);
+        /* Efectos de texto metálico Plata */
+        .text-silver {
+            background: var(--silver-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             display: inline-block;
-            text-shadow: 0px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 0px 2px 4px rgba(0,0,0,0.5);
         }
 
         /* Tipografía Editorial */
         h1, h2, h3, h4, .serif-text {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Playfair Display', serif;
             font-weight: 600;
         }
 
-        h2 { font-size: 3rem; margin-bottom: 10px; line-height: 1.1; }
-        h3 { font-size: 2rem; margin-bottom: 15px; }
+        h2 { font-size: 3.2rem; margin-bottom: 10px; line-height: 1.1; }
+        h3 { font-size: 2.2rem; margin-bottom: 15px; }
         
         p {
-            font-size: 1rem;
+            font-size: 1.1rem; /* Textos más grandes */
             line-height: 1.8;
             font-weight: 300;
             color: var(--text-light);
         }
 
         .subtitle {
-            font-size: 0.85rem;
+            font-size: 0.95rem;
             text-transform: uppercase;
             letter-spacing: 4px;
-            color: var(--gold-solid);
+            color: var(--silver-solid);
             margin-bottom: 15px;
             font-weight: 500;
         }
@@ -103,11 +103,11 @@
         .divider {
             width: 1px;
             height: 60px;
-            background: var(--gold-gradient);
+            background: var(--silver-gradient);
             margin: 40px auto;
         }
 
-        /* ----- INTRO SCREEN ----- */
+        /* ----- INTRO SCREEN (Estilo Tarjeta Corregido para Legibilidad) ----- */
         #intro-screen {
             position: fixed;
             top: 0;
@@ -123,14 +123,14 @@
         }
 
         .premium-card {
-            background: rgba(3, 8, 17, 0.85);
+            background: rgba(3, 8, 17, 0.85); 
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(212, 175, 55, 0.5);
+            border: 1px solid rgba(209, 213, 219, 0.5); /* Borde plata */
             padding: 60px 40px;
             text-align: center;
             border-radius: 20px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9), inset 0 0 20px rgba(212, 175, 55, 0.1);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9), inset 0 0 20px rgba(255, 255, 255, 0.1);
             max-width: 90%;
             width: 450px;
             position: relative;
@@ -139,19 +139,19 @@
         }
 
         .premium-card img {
-            max-width: 110px;
+            max-width: 120px;
             margin-bottom: 30px;
-            filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.4));
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.4));
         }
 
         .btn-abrir {
             margin-top: 40px;
             background: transparent;
-            border: 1px solid var(--gold-solid);
-            color: var(--gold-solid);
+            border: 1px solid var(--silver-solid);
+            color: var(--silver-solid);
             padding: 15px 40px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.85rem;
+            font-family: 'Jost', sans-serif;
+            font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 3px;
             cursor: pointer;
@@ -159,6 +159,7 @@
             transition: all 0.5s ease;
             position: relative;
             overflow: hidden;
+            font-weight: 500;
         }
 
         .btn-abrir::before {
@@ -166,7 +167,7 @@
             position: absolute;
             top: 0; left: -100%;
             width: 100%; height: 100%;
-            background: var(--gold-gradient);
+            background: var(--silver-gradient);
             transition: all 0.5s ease;
             z-index: -1;
         }
@@ -210,26 +211,26 @@
         .schedule-item {
             padding: 30px 20px;
             border-bottom: 2px solid transparent;
-            border-image: var(--gold-gradient) 1;
+            border-image: var(--silver-gradient) 1;
             background: linear-gradient(to bottom, transparent, rgba(18, 34, 61, 0.3));
         }
 
         .schedule-item h4 {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--gold-solid);
-            font-size: 1.5rem;
+            font-family: 'Jost', sans-serif;
+            color: var(--silver-solid);
+            font-size: 1.6rem;
             margin-bottom: 15px;
-            font-weight: 300;
+            font-weight: 400;
         }
 
         /* Botones Generales */
         .btn-primary {
             display: inline-block;
-            background: var(--gold-gradient);
+            background: var(--silver-gradient);
             color: var(--navy-900);
             padding: 16px 45px;
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.95rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -237,26 +238,26 @@
             margin-top: 30px;
             transition: all 0.4s ease;
             border: none;
-            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+            box-shadow: 0 10px 20px rgba(209, 213, 219, 0.2);
             cursor: pointer;
         }
 
         .btn-primary:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 15px 30px rgba(209, 213, 219, 0.4);
         }
 
         .btn-outline {
             background: transparent;
-            color: var(--gold-solid);
-            border: 1px solid var(--gold-solid);
+            color: var(--silver-solid);
+            border: 1px solid var(--silver-solid);
             box-shadow: none;
         }
 
         .btn-outline:hover {
-            background: rgba(212, 175, 55, 0.1);
+            background: rgba(209, 213, 219, 0.15);
             transform: translateY(-5px);
-            color: var(--gold-light);
+            color: var(--silver-light);
         }
 
         /* ----- FOTOS A LO ANCHO (FULL WIDTH) ----- */
@@ -305,7 +306,7 @@
         #imageModal img {
             max-width: 95%;
             max-height: 90vh;
-            border: 1px solid var(--gold-solid);
+            border: 1px solid var(--silver-solid);
             box-shadow: 0 0 30px rgba(0,0,0,0.8);
             border-radius: 4px;
         }
@@ -314,7 +315,7 @@
             position: absolute;
             top: 20px;
             right: 30px;
-            color: var(--gold-solid);
+            color: var(--silver-solid);
             font-size: 50px;
             font-weight: 300;
             cursor: pointer;
@@ -341,8 +342,8 @@
             border: none;
             color: var(--text-muted);
             padding: 15px 30px;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.4rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
             cursor: pointer;
             transition: 0.4s;
             position: relative;
@@ -353,12 +354,12 @@
             position: absolute;
             bottom: -1px; left: 0;
             width: 0%; height: 2px;
-            background: var(--gold-gradient);
+            background: var(--silver-gradient);
             transition: width 0.4s ease;
         }
 
         .tab-btn.active {
-            color: var(--gold-solid);
+            color: var(--silver-solid);
         }
 
         .tab-btn.active::after {
@@ -387,22 +388,22 @@
         .student-list li {
             padding: 12px 0;
             border-bottom: 1px solid rgba(255,255,255,0.05);
-            font-size: 0.85rem;
+            font-size: 0.95rem; /* Nombres más legibles */
             letter-spacing: 1px;
             color: var(--text-light);
             transition: color 0.3s;
         }
         
         .student-list li:hover {
-            color: var(--gold-light);
+            color: var(--silver-light);
             padding-left: 10px;
-            border-bottom: 1px solid var(--gold-solid);
+            border-bottom: 1px solid var(--silver-solid);
         }
 
         /* VIP Ticket */
         .vip-ticket {
             background: var(--navy-800);
-            border: 1px solid var(--gold-solid);
+            border: 1px solid var(--silver-solid);
             padding: 40px;
             border-radius: 8px;
             margin: 50px auto;
@@ -416,7 +417,7 @@
             position: absolute;
             top: 0; left: 0;
             width: 100%; height: 5px;
-            background: var(--gold-gradient);
+            background: var(--silver-gradient);
         }
 
         /* Música */
@@ -428,7 +429,7 @@
             height: 55px;
             background: rgba(10, 20, 38, 0.8);
             backdrop-filter: blur(5px);
-            border: 1px solid var(--gold-solid);
+            border: 1px solid var(--silver-solid);
             border-radius: 50%;
             display: flex;
             justify-content: center;
@@ -436,13 +437,13 @@
             cursor: pointer;
             box-shadow: 0 4px 15px rgba(0,0,0,0.5);
             z-index: 50;
-            color: var(--gold-solid);
+            color: var(--silver-solid);
             font-size: 1.2rem;
             transition: all 0.3s;
         }
 
         #music-control:hover {
-            background: var(--gold-solid);
+            background: var(--silver-light);
             color: var(--navy-900);
             transform: scale(1.1);
         }
@@ -451,11 +452,11 @@
         .watermark {
             text-align: center;
             padding: 40px 20px;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Jost', sans-serif;
             color: rgba(255, 255, 255, 0.15);
             text-transform: uppercase;
             letter-spacing: 8px;
-            font-size: 0.75rem;
+            font-size: 0.85rem;
         }
 
         /* ----- CLASES DE ANIMACIÓN ----- */
@@ -482,6 +483,7 @@
         .d-3 { transition-delay: 0.3s; }
         .d-4 { transition-delay: 0.4s; }
         .d-5 { transition-delay: 0.5s; }
+        .d-6 { transition-delay: 0.6s; }
 
     </style>
 </head>
@@ -489,48 +491,42 @@
 
     <div class="bg-glow"></div>
 
-    <!-- Intro / Premium Card -->
     <div id="intro-screen">
         <div class="premium-card" id="intro-card">
             <img src="assets/logo.png" alt="Logo María Montessori" onerror="this.style.display='none'">
             <h4 class="subtitle">Ceremonia de Clausura</h4>
-            <h1 class="text-gold" style="font-size: 2.2rem; margin-bottom: 10px;">Generación<br>2020 - 2026</h1>
-            <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-style: italic; color: var(--text-light);">Escuela Primaria<br>María Montessori</p>
+            <h1 class="text-silver" style="font-size: 2.4rem; margin-bottom: 10px;">Generación<br>2020 - 2026</h1>
+            <p style="font-family: 'Playfair Display', serif; font-size: 1.4rem; font-style: italic; color: var(--text-light);">Escuela Primaria<br>María Montessori</p>
             <button class="btn-abrir" onclick="abrirInvitacion()">Descubrir Invitación</button>
         </div>
     </div>
 
-    <!-- Lightbox Modal para las fotos -->
     <div id="imageModal">
-        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <span class="close-modal" onclick="closeModal()">×</span>
         <img id="modalImage" src="" alt="Vista ampliada">
     </div>
 
-    <!-- Audio Player (Actualizado a song.mp3) -->
     <button id="music-control" onclick="toggleMusic()">♪</button>
     <audio id="bg-music" loop>
         <source src="assets/song.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Contenido Principal -->
     <div id="main-content">
         
-        <!-- Portada -->
         <section style="padding-top: 80px;">
-            <img src="assets/logo.png" alt="Logo María Montessori" class="reveal reveal-up" style="max-width: 140px; margin: 0 auto 30px; display: block; filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));" onerror="this.style.display='none'">
+            <img src="assets/logo.png" alt="Logo María Montessori" class="reveal reveal-up" style="max-width: 150px; margin: 0 auto 30px; display: block; filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.3));" onerror="this.style.display='none'">
             <p class="subtitle reveal reveal-up d-1">Tenemos el honor de invitarle</p>
-            <h2 class="text-gold reveal reveal-up d-2">¡Nos Graduamos!</h2>
+            <h2 class="text-silver reveal reveal-up d-2">¡Nos Graduamos!</h2>
             <div class="divider reveal reveal-scale d-3"></div>
             <p class="reveal reveal-up d-4" style="max-width: 600px; margin: 0 auto;">Celebramos el esfuerzo, la dedicación y el inicio de una nueva etapa de la</p>
             
-            <h3 class="reveal reveal-up d-5 text-gold" style="margin-top: 30px; font-size: 2.5rem; line-height: 1.2;">
+            <h3 class="reveal reveal-up d-5 text-silver" style="margin-top: 30px; font-size: 2.8rem; line-height: 1.2;">
                 Generación<br>2020 - 2026
             </h3>
             
-            <p class="reveal reveal-up d-5" style="letter-spacing: 2px;">ESCUELA PRIMARIA "MARÍA MONTESSORI"<br><span style="font-size: 0.8rem; color: var(--text-muted);">TURNO MATUTINO</span></p>
+            <p class="reveal reveal-up d-5" style="letter-spacing: 2px;">ESCUELA PRIMARIA "MARÍA MONTESSORI"<br><span style="font-size: 0.9rem; color: var(--text-muted);">TURNO MATUTINO</span></p>
         </section>
 
-        <!-- Fotos de los Grupos (Ancho Completo) -->
         <section style="max-width: 100%; padding: 0 0 60px 0;">
             <p class="subtitle reveal reveal-up" style="margin-bottom: 30px;">Nuestra Generación</p>
             <div class="full-width-gallery">
@@ -538,29 +534,28 @@
                 <img src="assets/6b.jpg" alt="Grupo 6B" onclick="openModal(this.src)" class="reveal reveal-up d-1" title="Toca para ampliar" onerror="this.style.display='none'">
                 <img src="assets/6c.jpg" alt="Grupo 6C" onclick="openModal(this.src)" class="reveal reveal-up d-2" title="Toca para ampliar" onerror="this.style.display='none'">
             </div>
-            <p class="reveal reveal-up" style="font-size: 0.8rem; color: var(--text-muted); margin-top: 20px; font-style: italic;">Toca las imágenes para verlas en pantalla completa.</p>
+            <p class="reveal reveal-up" style="font-size: 0.95rem; color: var(--text-muted); margin-top: 20px; font-style: italic;">Toca las imágenes para verlas en pantalla completa.</p>
         </section>
 
-        <!-- Detalles del Evento -->
         <section>
             <div class="glass-panel reveal reveal-blur">
                 <p class="subtitle reveal reveal-up">Cuándo y Dónde</p>
-                <h2 class="text-gold reveal reveal-up d-1" style="font-size: 2.5rem;">15 de Julio 2026</h2>
+                <h2 class="text-silver reveal reveal-up d-1" style="font-size: 2.8rem;">15 de Julio 2026</h2>
                 
                 <div class="schedule-grid">
                     <div class="schedule-item reveal reveal-up d-2">
                         <h4>07:45</h4>
-                        <p class="subtitle" style="font-size: 0.7rem;">AM</p>
+                        <p class="subtitle" style="font-size: 0.8rem;">AM</p>
                         <p>Ingreso de Alumnos</p>
                     </div>
                     <div class="schedule-item reveal reveal-up d-3">
                         <h4>08:15</h4>
-                        <p class="subtitle" style="font-size: 0.7rem;">AM</p>
+                        <p class="subtitle" style="font-size: 0.8rem;">AM</p>
                         <p>Ingreso de Invitados</p>
                     </div>
                     <div class="schedule-item reveal reveal-up d-4">
                         <h4>08:40</h4>
-                        <p class="subtitle" style="font-size: 0.7rem;">AM</p>
+                        <p class="subtitle" style="font-size: 0.8rem;">AM</p>
                         <p>Inicio del Evento</p>
                     </div>
                 </div>
@@ -572,48 +567,53 @@
             </div>
         </section>
 
-        <!-- Autoridades y Padrino -->
         <section>
             <p class="subtitle reveal reveal-up">Mesa de Honor</p>
-            <h2 class="text-gold reveal reveal-up d-1">Autoridades</h2>
+            <h2 class="text-silver reveal reveal-up d-1">Autoridades</h2>
             
             <div class="glass-panel reveal reveal-scale d-2" style="margin-top: 40px; padding: 50px 20px;">
                 <div class="reveal reveal-up d-3" style="margin-bottom: 40px;">
                     <p class="subtitle">Directora Escolar</p>
-                    <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem;">Mtra. Marlen González Cobos</p>
+                    <p style="font-family: 'Playfair Display', serif; font-size: 1.7rem;">Mtra. Marlen González Cobos</p>
                 </div>
                 
                 <div class="reveal reveal-up d-4" style="margin-bottom: 50px;">
                     <p class="subtitle">Subdirector Escolar</p>
-                    <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem;">Dr. Miguel Ángel Valladares Armijo</p>
+                    <p style="font-family: 'Playfair Display', serif; font-size: 1.7rem;">Dr. Miguel Ángel Valladares Armijo</p>
                 </div>
 
                 <div class="divider"></div>
 
                 <div class="reveal reveal-up d-5">
                     <p class="subtitle" style="color: var(--text-light);">Padrino de Generación</p>
-                    <h3 class="text-gold" style="font-size: 2.2rem; margin: 15px 0;">Mtro. César Agustín Hernández Pérez</h3>
-                    <p style="font-size: 0.9rem; color: var(--text-muted); letter-spacing: 1px;">Diputado Federal, Distrito 30<br>Chicoloapan - Chimalhuacán</p>
+                    <h3 class="text-silver" style="font-size: 2.3rem; margin: 15px 0;">Mtro. César Agustín Hernández Pérez</h3>
+                    <p style="font-size: 1.05rem; color: var(--text-muted); letter-spacing: 1px;">Diputado Federal, Distrito 30<br>Chicoloapan - Chimalhuacán</p>
+                </div>
+
+                <div class="divider" style="height: 40px; opacity: 0.5;"></div>
+
+                <div class="reveal reveal-up d-6">
+                    <p class="subtitle" style="color: var(--text-light);">Agradecimiento especial al</p>
+                    <h3 class="text-silver" style="font-size: 2.3rem; margin: 15px 0;">Lic. Samuel Ríos Moreno</h3>
+                    <p style="font-size: 1.05rem; color: var(--text-muted); letter-spacing: 1px;">Diputado Local por el Distrito 05<br>Chimalhuacán - Chicoloapan</p>
                 </div>
             </div>
         </section>
 
-        <!-- Docentes Titulares -->
         <section>
             <p class="subtitle reveal reveal-up">Nuestros Guías</p>
-            <h2 class="text-gold reveal reveal-up d-1">Docentes Titulares</h2>
+            <h2 class="text-silver reveal reveal-up d-1">Docentes Titulares</h2>
             
             <div class="glass-panel reveal reveal-scale d-2" style="margin-top: 30px; padding: 40px 20px; text-align: left;">
-                <p class="reveal reveal-up d-3" style="margin-bottom: 20px; font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 10px;"><strong class="text-gold" style="font-size: 1.3rem; font-family: 'Cormorant Garamond', serif;">6° A:</strong> Profra. Guadalupe Estrada Gómez</p>
-                <p class="reveal reveal-up d-4" style="margin-bottom: 20px; font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 10px;"><strong class="text-gold" style="font-size: 1.3rem; font-family: 'Cormorant Garamond', serif;">6° B:</strong> Mtra. Nallely Venegas Herrera</p>
-                <p class="reveal reveal-up d-5" style="font-size: 1.1rem;"><strong class="text-gold" style="font-size: 1.3rem; font-family: 'Cormorant Garamond', serif;">6° C:</strong> Mtra. María del Rosario Ortega Fuerte</p>
+                <p class="reveal reveal-up d-3" style="margin-bottom: 20px; font-size: 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 10px;"><strong class="text-silver" style="font-size: 1.5rem; font-family: 'Playfair Display', serif;">6° A:</strong> Profra. Guadalupe Estrada Gómez</p>
+                <p class="reveal reveal-up d-4" style="margin-bottom: 20px; font-size: 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 10px;"><strong class="text-silver" style="font-size: 1.5rem; font-family: 'Playfair Display', serif;">6° B:</strong> Mtra. Nallely Venegas Herrera</p>
+                <p class="reveal reveal-up d-5" style="font-size: 1.2rem;"><strong class="text-silver" style="font-size: 1.5rem; font-family: 'Playfair Display', serif;">6° C:</strong> Mtra. María del Rosario Ortega Fuerte</p>
             </div>
         </section>
 
-        <!-- Lista de Alumnos -->
         <section>
-            <h2 class="text-gold reveal reveal-up">Graduados</h2>
-            <p class="reveal reveal-up d-1" style="margin-bottom: 40px;">Generación<br>2020 - 2026</p>
+            <h2 class="text-silver reveal reveal-up">Graduados</h2>
+            <p class="reveal reveal-up d-1" style="margin-bottom: 40px; font-size: 1.3rem;">Generación<br>2020 - 2026</p>
 
             <div class="tabs reveal reveal-scale d-2">
                 <button class="tab-btn active" onclick="openTab('grupoA', event)">6° A</button>
@@ -740,58 +740,52 @@
             </div>
         </section>
 
-        <!-- Confirmación de Asistencia -->
         <section>
             <p class="subtitle reveal reveal-up">RSVP</p>
-            <h2 class="text-gold reveal reveal-up d-1">Confirmación de Asistencia</h2>
+            <h2 class="text-silver reveal reveal-up d-1">Confirmación de Asistencia</h2>
             <div class="glass-panel reveal reveal-blur d-2" style="margin-top: 30px;">
-                <p class="reveal reveal-up d-3" style="font-size: 1.1rem; margin-bottom: 25px;">Por favor, confirma tu asistencia para que podamos esperarte con los brazos abiertos en este día tan especial.</p>
+                <p class="reveal reveal-up d-3" style="font-size: 1.2rem; margin-bottom: 25px;">Por favor, confirma tu asistencia para que podamos esperarte con los brazos abiertos en este día tan especial.</p>
                 <a href="https://wa.me/525568618506?text=Hola,%20confirmo%20mi%20asistencia%20a%20la%20ceremonia%20de%20clausura." target="_blank" class="btn-primary reveal reveal-up d-4">
                     Confirmar por WhatsApp
                 </a>
-                <p class="reveal reveal-up d-5" style="margin-top: 25px; font-size: 1.4rem; font-weight: 600; color: var(--gold-light);">
+                <p class="reveal reveal-up d-5" style="margin-top: 25px; font-size: 1.5rem; font-weight: 600; color: var(--silver-light);">
                     +52 55 6861 8506
                 </p>
             </div>
         </section>
 
-        <!-- Galería Compartida -->
         <section>
             <p class="subtitle reveal reveal-up">Memorias</p>
-            <h2 class="text-gold reveal reveal-up d-1">Galería de Recuerdos</h2>
+            <h2 class="text-silver reveal reveal-up d-1">Galería de Recuerdos</h2>
             <div class="divider reveal reveal-scale d-2"></div>
-            <p class="reveal reveal-up d-3">Ayúdanos a inmortalizar los mejores momentos de esta generación. Sube tus fotografías a nuestra galería compartida.</p>
+            <p class="reveal reveal-up d-3" style="font-size: 1.2rem;">Ayúdanos a inmortalizar los mejores momentos de esta generación. Sube tus fotografías a nuestra galería compartida.</p>
             <a href="https://drive.google.com/drive/folders/1KqHzS00FdDp6aeGaTX3WmUmie99CnpvG?usp=sharing" target="_blank" class="btn-primary btn-outline reveal reveal-up d-4" style="margin-top: 25px;">Compartir Fotografías</a>
         </section>
 
-        <!-- Pases de Acceso -->
         <section>
             <div class="vip-ticket reveal reveal-up">
-                <img src="assets/logo.png" alt="Logo" style="max-width: 70px; margin-bottom: 20px;" onerror="this.style.display='none'">
+                <img src="assets/logo.png" alt="Logo" style="max-width: 80px; margin-bottom: 20px;" onerror="this.style.display='none'">
                 <p class="subtitle" style="margin-bottom: 5px;">Pase Oficial</p>
-                <h3 class="text-gold" style="font-size: 2rem; margin-top: 0; text-transform: uppercase;">Invitado de Honor</h3>
-                <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--text-muted); margin-top: 15px; font-style: italic;">Válido para la Ceremonia de Clausura</p>
+                <h3 class="text-silver" style="font-size: 2.2rem; margin-top: 0; text-transform: uppercase;">Invitado de Honor</h3>
+                <p style="font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--text-muted); margin-top: 15px; font-style: italic;">Válido para la Ceremonia de Clausura</p>
             </div>
-            <p class="reveal reveal-up d-1" style="font-size: 0.85rem; color: var(--text-muted); letter-spacing: 1px;">FAVOR DE MOSTRAR ESTA INVITACIÓN DIGITAL EN EL ACCESO.</p>
+            <p class="reveal reveal-up d-1" style="font-size: 0.95rem; color: var(--text-muted); letter-spacing: 1px;">FAVOR DE MOSTRAR ESTA INVITACIÓN DIGITAL EN EL ACCESO.</p>
         </section>
 
-        <!-- Marca de Agua Final -->
         <div class="watermark reveal reveal-up">
             Invytia Premium
         </div>
 
     </div>
 
-    <!-- Scripts -->
     <script>
         const audio = document.getElementById("bg-music");
         const musicBtn = document.getElementById("music-control");
         let isPlaying = false;
 
-        // Función de apertura (Ahora fuerza el sonido inmediatamente con el evento Clic)
+        // Función de apertura (Fuerza el sonido inmediatamente con el evento Clic)
         function abrirInvitacion() {
             
-            // Disparar música al instante del clic para saltar bloqueo del navegador
             audio.play().then(() => {
                 isPlaying = true;
                 musicBtn.innerHTML = "||"; 
@@ -870,12 +864,12 @@
             });
         }
 
-        // Generar polvo de estrellas/oro de fondo
+        // Generar polvo de estrellas plata de fondo
         function crearDestellos() {
             const numDust = 40;
             for(let i = 0; i < numDust; i++) {
                 let dust = document.createElement('div');
-                dust.classList.add('gold-dust');
+                dust.classList.add('silver-dust');
                 
                 dust.style.left = Math.random() * 100 + 'vw';
                 dust.style.top = Math.random() * 200 + 'vh'; 
