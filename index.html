@@ -107,7 +107,7 @@
             margin: 40px auto;
         }
 
-        /* ----- INTRO SCREEN (Estilo Tarjeta Corregido para Legibilidad) ----- */
+        /* ----- INTRO SCREEN ----- */
         #intro-screen {
             position: fixed;
             top: 0;
@@ -123,7 +123,7 @@
         }
 
         .premium-card {
-            background: rgba(3, 8, 17, 0.85); /* Fondo mucho más oscuro para contraste perfecto */
+            background: rgba(3, 8, 17, 0.85);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border: 1px solid rgba(212, 175, 55, 0.5);
@@ -458,7 +458,7 @@
             font-size: 0.75rem;
         }
 
-        /* ----- CLASES DE ANIMACIÓN (Intersection Observer) ----- */
+        /* ----- CLASES DE ANIMACIÓN ----- */
         .reveal {
             opacity: 0;
             transition: all 1s cubic-bezier(0.5, 0, 0, 1);
@@ -477,7 +477,6 @@
         .reveal-blur { filter: blur(10px); transform: translateY(20px); }
         .reveal-blur.active { filter: blur(0); }
 
-        /* Delays para efecto cascada */
         .d-1 { transition-delay: 0.1s; }
         .d-2 { transition-delay: 0.2s; }
         .d-3 { transition-delay: 0.3s; }
@@ -507,16 +506,16 @@
         <img id="modalImage" src="" alt="Vista ampliada">
     </div>
 
-    <!-- Audio Player -->
+    <!-- Audio Player (Actualizado a song.mp3) -->
     <button id="music-control" onclick="toggleMusic()">♪</button>
     <audio id="bg-music" loop>
-        <source src="assets/musica.mp3" type="audio/mpeg">
+        <source src="assets/song.mp3" type="audio/mpeg">
     </audio>
 
     <!-- Contenido Principal -->
     <div id="main-content">
         
-        <!-- Portada con Logo incluido -->
+        <!-- Portada -->
         <section style="padding-top: 80px;">
             <img src="assets/logo.png" alt="Logo María Montessori" class="reveal reveal-up" style="max-width: 140px; margin: 0 auto 30px; display: block; filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));" onerror="this.style.display='none'">
             <p class="subtitle reveal reveal-up d-1">Tenemos el honor de invitarle</p>
@@ -789,8 +788,17 @@
         const musicBtn = document.getElementById("music-control");
         let isPlaying = false;
 
-        // Función de apertura con efecto de tarjeta
+        // Función de apertura (Ahora fuerza el sonido inmediatamente con el evento Clic)
         function abrirInvitacion() {
+            
+            // Disparar música al instante del clic para saltar bloqueo del navegador
+            audio.play().then(() => {
+                isPlaying = true;
+                musicBtn.innerHTML = "||"; 
+            }).catch(e => {
+                console.log("Audio bloqueado por el navegador: ", e);
+            });
+
             const card = document.getElementById('intro-card');
             const screen = document.getElementById('intro-screen');
             
@@ -806,12 +814,6 @@
                     
                     iniciarAnimaciones();
                     crearDestellos();
-                    
-                    // Reproducir música
-                    audio.play().then(() => {
-                        isPlaying = true;
-                        musicBtn.innerHTML = "||"; 
-                    }).catch(e => console.log("Auto-play prevenido por el navegador."));
                 }, 800);
             }, 500);
         }
