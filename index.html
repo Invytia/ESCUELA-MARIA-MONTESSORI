@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clausura Generación 2020-2026 | María Montessori</title>
-    <!-- Fuentes Premium: Playfair Display para títulos, Jost para lectura, Cinzel para nombres de alumnos -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Jost:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <!-- Fuentes Premium: Playfair Display, Jost, Cinzel y Dancing Script para el nombre de la escuela -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Jost:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Paleta Premium Editorial - Tonos Azul Rey / Royal Blue */
-            --royal-900: #040d21; /* Azul rey ultra oscuro (fondo principal) */
-            --royal-800: #091f4d; /* Azul rey oscuro (paneles) */
-            --royal-700: #0f327a; /* Azul rey medio */
-            --royal-base: #1444a8; /* Azul rey vibrante */
+            /* Paleta Premium Editorial - Tonos Azul Rey Iluminado */
+            --royal-900: #123480; /* Azul rey base iluminado (fondo principal) */
+            --royal-800: #1b49b3; /* Azul rey más vibrante (paneles) */
+            --royal-700: #2659d1; /* Azul rey medio */
+            --royal-base: #3366ff; /* Azul rey brillante */
             
             /* Tonos Plata / Platino */
             --silver-solid: #D1D5DB; 
@@ -20,10 +20,10 @@
             --silver-gradient: linear-gradient(135deg, #9CA3AF, #F3F4F6, #D1D5DB, #FFFFFF, #6B7280); 
             
             --text-light: #f3f4f6;
-            --text-muted: #9ca3af;
+            --text-muted: #b5c4e3; /* Tono plateado/azulado para contraste */
             
-            --glass-bg: rgba(9, 31, 77, 0.45); /* Transparencia base azul rey */
-            --glass-border: rgba(209, 213, 219, 0.3); /* Borde plata con transparencia */
+            --glass-bg: rgba(27, 73, 179, 0.4); /* Transparencia en azul rey */
+            --glass-border: rgba(209, 213, 219, 0.35); /* Borde plata con transparencia */
         }
 
         * {
@@ -48,7 +48,7 @@
             left: 50%;
             width: 150vw;
             height: 150vh;
-            background: radial-gradient(circle at center, rgba(15, 50, 122, 0.6) 0%, var(--royal-900) 65%);
+            background: radial-gradient(circle at center, rgba(51, 102, 255, 0.35) 0%, var(--royal-900) 65%);
             transform: translate(-50%, -50%);
             z-index: -2;
             pointer-events: none;
@@ -97,6 +97,14 @@
             color: var(--text-light);
         }
 
+        /* Tipografía Cursiva para Escuela */
+        .school-name {
+            font-family: 'Dancing Script', cursive;
+            font-weight: 700;
+            color: var(--silver-light);
+            text-shadow: 0 2px 5px rgba(0,0,0,0.4);
+        }
+
         .subtitle {
             font-size: 0.95rem;
             text-transform: uppercase;
@@ -129,14 +137,14 @@
         }
 
         .premium-card {
-            background: rgba(4, 13, 33, 0.85); 
+            background: rgba(18, 52, 128, 0.85); /* Fondo Azul Rey para tarjeta */
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border: 1px solid rgba(209, 213, 219, 0.4); 
             padding: 60px 40px;
             text-align: center;
             border-radius: 20px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9), inset 0 0 20px rgba(255, 255, 255, 0.1);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(255, 255, 255, 0.1);
             max-width: 90%;
             width: 480px;
             position: relative;
@@ -145,8 +153,8 @@
         }
 
         .premium-card img {
-            max-width: 180px; /* Logo más grande en la entrada */
-            margin-bottom: 30px;
+            max-width: 180px;
+            margin-bottom: 25px;
             filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.4));
         }
 
@@ -254,7 +262,7 @@
             padding: 30px 20px;
             border-bottom: 2px solid transparent;
             border-image: var(--silver-gradient) 1;
-            background: linear-gradient(to bottom, transparent, rgba(20, 68, 168, 0.15));
+            background: linear-gradient(to bottom, transparent, rgba(38, 89, 209, 0.15));
         }
 
         .schedule-item h4 {
@@ -339,7 +347,7 @@
             top: 0;
             width: 100%;
             height: 100vh;
-            background-color: rgba(4, 13, 33, 0.95);
+            background-color: rgba(18, 52, 128, 0.95);
             backdrop-filter: blur(5px);
             justify-content: center;
             align-items: center;
@@ -427,11 +435,11 @@
             .student-list { columns: 2; gap: 40px; }
         }
 
-        /* NUEVA FUENTE PARA ALUMNOS (CINZEL) */
+        /* FUENTE PARA ALUMNOS (CINZEL) */
         .student-list li {
             padding: 12px 0;
             border-bottom: 1px solid rgba(255,255,255,0.05);
-            font-family: 'Cinzel', serif; /* Letra tipo diploma, muy elegante */
+            font-family: 'Cinzel', serif; 
             font-size: 1.05rem; 
             font-weight: 500;
             letter-spacing: 1.5px;
@@ -473,7 +481,7 @@
             right: 30px;
             width: 55px;
             height: 55px;
-            background: rgba(9, 31, 77, 0.8);
+            background: rgba(18, 52, 128, 0.8);
             backdrop-filter: blur(5px);
             border: 1px solid var(--silver-solid);
             border-radius: 50%;
@@ -499,7 +507,7 @@
             text-align: center;
             padding: 40px 20px;
             font-family: 'Jost', sans-serif;
-            color: rgba(255, 255, 255, 0.15);
+            color: rgba(255, 255, 255, 0.25);
             text-transform: uppercase;
             letter-spacing: 8px;
             font-size: 0.85rem;
@@ -542,8 +550,11 @@
         <div class="premium-card" id="intro-card">
             <img src="assets/logo.png" alt="Logo María Montessori" onerror="this.style.display='none'">
             <h4 class="subtitle">Ceremonia de Clausura</h4>
-            <h1 class="text-silver" style="font-size: 2.4rem; margin-bottom: 10px;">Generación<br>2020 - 2026</h1>
-            <p style="font-family: 'Playfair Display', serif; font-size: 1.4rem; font-style: italic; color: var(--text-light);">Escuela Primaria<br>María Montessori</p>
+            <h1 class="text-silver" style="font-size: 2.4rem; margin-bottom: 5px;">Generación<br>2020 - 2026</h1>
+            
+            <!-- Nombre de la escuela en Cursiva -->
+            <h2 class="school-name" style="font-size: 2.7rem; line-height: 1.1; margin-top: 15px; margin-bottom: 25px;">Escuela Primaria<br>María Montessori</h2>
+            
             <button class="btn-abrir" onclick="abrirInvitacion()">Descubrir Invitación</button>
         </div>
     </div>
@@ -554,7 +565,7 @@
         <img id="modalImage" src="" alt="Vista ampliada">
     </div>
 
-    <!-- Audio Player (Actualizado a song.mp3) -->
+    <!-- Audio Player -->
     <button id="music-control" onclick="toggleMusic()">♪</button>
     <audio id="bg-music" loop>
         <source src="assets/song.mp3" type="audio/mpeg">
@@ -565,7 +576,6 @@
         
         <!-- Portada -->
         <section style="padding-top: 80px;">
-            <!-- Logo principal más grande -->
             <img src="assets/logo.png" alt="Logo María Montessori" class="reveal reveal-up" style="max-width: 220px; margin: 0 auto 30px; display: block; filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.4));" onerror="this.style.display='none'">
             <p class="subtitle reveal reveal-up d-1">Tenemos el honor de invitarle</p>
             <h2 class="text-silver reveal reveal-up d-2">¡Nos Graduamos!</h2>
@@ -576,7 +586,9 @@
                 Generación<br>2020 - 2026
             </h3>
             
-            <p class="reveal reveal-up d-5" style="letter-spacing: 2px;">ESCUELA PRIMARIA "MARÍA MONTESSORI"<br><span style="font-size: 0.9rem; color: var(--text-muted);">TURNO MATUTINO</span></p>
+            <!-- Nombre de la escuela en Cursiva (Portada) -->
+            <h2 class="school-name reveal reveal-up d-5" style="font-size: 3.5rem; line-height: 1.1; margin-top: 20px; margin-bottom: 10px;">Escuela Primaria<br>"María Montessori"</h2>
+            <p class="reveal reveal-up d-5" style="font-size: 1.1rem; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase;">Turno Matutino</p>
         </section>
 
         <!-- Cuenta Regresiva -->
@@ -638,8 +650,8 @@
 
                 <div class="divider reveal reveal-scale"></div>
                 <h3 class="reveal reveal-up d-1">Ubicación</h3>
-                <p class="reveal reveal-up d-2">Escuela Primaria María Montessori</p>
-                <a href="https://maps.app.goo.gl/FcYxe5jA3nivc8bv7?g_st=aw" target="_blank" class="btn-primary btn-outline reveal reveal-up d-3" style="margin-top: 20px;">Cómo Llegar</a>
+                <h2 class="school-name reveal reveal-up d-2" style="font-size: 2.4rem; margin-bottom: 20px;">Escuela Primaria María Montessori</h2>
+                <a href="https://maps.app.goo.gl/FcYxe5jA3nivc8bv7?g_st=aw" target="_blank" class="btn-primary btn-outline reveal reveal-up d-3" style="margin-top: 10px;">Cómo Llegar</a>
             </div>
         </section>
 
