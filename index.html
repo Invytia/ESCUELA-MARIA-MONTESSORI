@@ -4,19 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clausura Generación 2020-2026 | María Montessori</title>
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <!-- Fuentes Premium: Playfair Display para títulos, Jost para lectura, Cinzel para nombres de alumnos -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Jost:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Paleta Premium Editorial - Tonos Plata / Platino */
-            --navy-900: #030811;
-            --navy-800: #0a1426;
-            --navy-700: #12223d;
-            --silver-solid: #D1D5DB; /* Base plata */
-            --silver-light: #F9FAFB; /* Plata muy claro / blanco brillante */
-            --silver-gradient: linear-gradient(135deg, #9CA3AF, #F3F4F6, #D1D5DB, #FFFFFF, #6B7280); /* Gradiente platino */
+            /* Paleta Premium Editorial - Tonos Azul Rey / Royal Blue */
+            --royal-900: #040d21; /* Azul rey ultra oscuro (fondo principal) */
+            --royal-800: #091f4d; /* Azul rey oscuro (paneles) */
+            --royal-700: #0f327a; /* Azul rey medio */
+            --royal-base: #1444a8; /* Azul rey vibrante */
+            
+            /* Tonos Plata / Platino */
+            --silver-solid: #D1D5DB; 
+            --silver-light: #F9FAFB; 
+            --silver-gradient: linear-gradient(135deg, #9CA3AF, #F3F4F6, #D1D5DB, #FFFFFF, #6B7280); 
+            
             --text-light: #f3f4f6;
             --text-muted: #9ca3af;
-            --glass-bg: rgba(18, 34, 61, 0.4);
+            
+            --glass-bg: rgba(9, 31, 77, 0.45); /* Transparencia base azul rey */
             --glass-border: rgba(209, 213, 219, 0.3); /* Borde plata con transparencia */
         }
 
@@ -28,11 +34,11 @@
 
         body {
             font-family: 'Jost', sans-serif;
-            background-color: var(--navy-900);
+            background-color: var(--royal-900);
             color: var(--text-light);
             overflow-x: hidden;
             position: relative;
-            font-size: 18px; /* Aumento del tamaño base de la letra */
+            font-size: 18px; 
         }
 
         /* Fondo dinámico sutil */
@@ -42,7 +48,7 @@
             left: 50%;
             width: 150vw;
             height: 150vh;
-            background: radial-gradient(circle at center, rgba(18, 34, 61, 0.8) 0%, var(--navy-900) 60%);
+            background: radial-gradient(circle at center, rgba(15, 50, 122, 0.6) 0%, var(--royal-900) 65%);
             transform: translate(-50%, -50%);
             z-index: -2;
             pointer-events: none;
@@ -85,7 +91,7 @@
         h3 { font-size: 2.2rem; margin-bottom: 15px; }
         
         p {
-            font-size: 1.1rem; /* Textos más grandes */
+            font-size: 1.1rem;
             line-height: 1.8;
             font-weight: 300;
             color: var(--text-light);
@@ -107,14 +113,14 @@
             margin: 40px auto;
         }
 
-        /* ----- INTRO SCREEN (Estilo Tarjeta Corregido para Legibilidad) ----- */
+        /* ----- INTRO SCREEN ----- */
         #intro-screen {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100vh;
-            background-color: var(--navy-900);
+            background-color: var(--royal-900);
             z-index: 100;
             display: flex;
             justify-content: center;
@@ -123,23 +129,23 @@
         }
 
         .premium-card {
-            background: rgba(3, 8, 17, 0.85); 
+            background: rgba(4, 13, 33, 0.85); 
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(209, 213, 219, 0.5); /* Borde plata */
+            border: 1px solid rgba(209, 213, 219, 0.4); 
             padding: 60px 40px;
             text-align: center;
             border-radius: 20px;
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9), inset 0 0 20px rgba(255, 255, 255, 0.1);
             max-width: 90%;
-            width: 450px;
+            width: 480px;
             position: relative;
             transform: translateY(0);
             transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .premium-card img {
-            max-width: 120px;
+            max-width: 180px; /* Logo más grande en la entrada */
             margin-bottom: 30px;
             filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.4));
         }
@@ -173,7 +179,7 @@
         }
 
         .btn-abrir:hover::before { left: 0; }
-        .btn-abrir:hover { color: var(--navy-900); font-weight: 600; border-color: transparent; }
+        .btn-abrir:hover { color: var(--royal-900); font-weight: 600; border-color: transparent; }
 
         /* ----- CONTENIDO PRINCIPAL ----- */
         #main-content {
@@ -188,6 +194,42 @@
             text-align: center;
             max-width: 900px;
             margin: 0 auto;
+        }
+
+        /* Countdown */
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 40px auto;
+        }
+        
+        .time-box {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 20px 15px;
+            min-width: 100px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        
+        .time-box span {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .time-box p {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0;
+            color: var(--silver-solid);
         }
 
         /* Glass Panels para información */
@@ -212,7 +254,7 @@
             padding: 30px 20px;
             border-bottom: 2px solid transparent;
             border-image: var(--silver-gradient) 1;
-            background: linear-gradient(to bottom, transparent, rgba(18, 34, 61, 0.3));
+            background: linear-gradient(to bottom, transparent, rgba(20, 68, 168, 0.15));
         }
 
         .schedule-item h4 {
@@ -227,7 +269,7 @@
         .btn-primary {
             display: inline-block;
             background: var(--silver-gradient);
-            color: var(--navy-900);
+            color: var(--royal-900);
             padding: 16px 45px;
             text-decoration: none;
             font-size: 0.95rem;
@@ -297,7 +339,7 @@
             top: 0;
             width: 100%;
             height: 100vh;
-            background-color: rgba(3, 8, 17, 0.95);
+            background-color: rgba(4, 13, 33, 0.95);
             backdrop-filter: blur(5px);
             justify-content: center;
             align-items: center;
@@ -385,24 +427,27 @@
             .student-list { columns: 2; gap: 40px; }
         }
 
+        /* NUEVA FUENTE PARA ALUMNOS (CINZEL) */
         .student-list li {
             padding: 12px 0;
             border-bottom: 1px solid rgba(255,255,255,0.05);
-            font-size: 0.95rem; /* Nombres más legibles */
-            letter-spacing: 1px;
+            font-family: 'Cinzel', serif; /* Letra tipo diploma, muy elegante */
+            font-size: 1.05rem; 
+            font-weight: 500;
+            letter-spacing: 1.5px;
             color: var(--text-light);
-            transition: color 0.3s;
+            transition: color 0.3s, transform 0.3s;
         }
         
         .student-list li:hover {
             color: var(--silver-light);
-            padding-left: 10px;
+            transform: translateX(5px);
             border-bottom: 1px solid var(--silver-solid);
         }
 
         /* VIP Ticket */
         .vip-ticket {
-            background: var(--navy-800);
+            background: var(--royal-800);
             border: 1px solid var(--silver-solid);
             padding: 40px;
             border-radius: 8px;
@@ -410,6 +455,7 @@
             max-width: 450px;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
         }
 
         .vip-ticket::before {
@@ -427,7 +473,7 @@
             right: 30px;
             width: 55px;
             height: 55px;
-            background: rgba(10, 20, 38, 0.8);
+            background: rgba(9, 31, 77, 0.8);
             backdrop-filter: blur(5px);
             border: 1px solid var(--silver-solid);
             border-radius: 50%;
@@ -444,7 +490,7 @@
 
         #music-control:hover {
             background: var(--silver-light);
-            color: var(--navy-900);
+            color: var(--royal-900);
             transform: scale(1.1);
         }
 
@@ -491,6 +537,7 @@
 
     <div class="bg-glow"></div>
 
+    <!-- Intro / Premium Card -->
     <div id="intro-screen">
         <div class="premium-card" id="intro-card">
             <img src="assets/logo.png" alt="Logo María Montessori" onerror="this.style.display='none'">
@@ -501,20 +548,25 @@
         </div>
     </div>
 
+    <!-- Lightbox Modal para las fotos -->
     <div id="imageModal">
         <span class="close-modal" onclick="closeModal()">×</span>
         <img id="modalImage" src="" alt="Vista ampliada">
     </div>
 
+    <!-- Audio Player (Actualizado a song.mp3) -->
     <button id="music-control" onclick="toggleMusic()">♪</button>
     <audio id="bg-music" loop>
         <source src="assets/song.mp3" type="audio/mpeg">
     </audio>
 
+    <!-- Contenido Principal -->
     <div id="main-content">
         
+        <!-- Portada -->
         <section style="padding-top: 80px;">
-            <img src="assets/logo.png" alt="Logo María Montessori" class="reveal reveal-up" style="max-width: 150px; margin: 0 auto 30px; display: block; filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.3));" onerror="this.style.display='none'">
+            <!-- Logo principal más grande -->
+            <img src="assets/logo.png" alt="Logo María Montessori" class="reveal reveal-up" style="max-width: 220px; margin: 0 auto 30px; display: block; filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.4));" onerror="this.style.display='none'">
             <p class="subtitle reveal reveal-up d-1">Tenemos el honor de invitarle</p>
             <h2 class="text-silver reveal reveal-up d-2">¡Nos Graduamos!</h2>
             <div class="divider reveal reveal-scale d-3"></div>
@@ -527,6 +579,29 @@
             <p class="reveal reveal-up d-5" style="letter-spacing: 2px;">ESCUELA PRIMARIA "MARÍA MONTESSORI"<br><span style="font-size: 0.9rem; color: var(--text-muted);">TURNO MATUTINO</span></p>
         </section>
 
+        <!-- Cuenta Regresiva -->
+        <section style="padding-top: 0;">
+            <div class="countdown-container reveal reveal-up d-6">
+                <div class="time-box">
+                    <span id="days" class="text-silver">00</span>
+                    <p>Días</p>
+                </div>
+                <div class="time-box">
+                    <span id="hours" class="text-silver">00</span>
+                    <p>Horas</p>
+                </div>
+                <div class="time-box">
+                    <span id="minutes" class="text-silver">00</span>
+                    <p>Minutos</p>
+                </div>
+                <div class="time-box">
+                    <span id="seconds" class="text-silver">00</span>
+                    <p>Segundos</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fotos de los Grupos (Ancho Completo) -->
         <section style="max-width: 100%; padding: 0 0 60px 0;">
             <p class="subtitle reveal reveal-up" style="margin-bottom: 30px;">Nuestra Generación</p>
             <div class="full-width-gallery">
@@ -537,6 +612,7 @@
             <p class="reveal reveal-up" style="font-size: 0.95rem; color: var(--text-muted); margin-top: 20px; font-style: italic;">Toca las imágenes para verlas en pantalla completa.</p>
         </section>
 
+        <!-- Detalles del Evento -->
         <section>
             <div class="glass-panel reveal reveal-blur">
                 <p class="subtitle reveal reveal-up">Cuándo y Dónde</p>
@@ -567,6 +643,7 @@
             </div>
         </section>
 
+        <!-- Autoridades y Padrino -->
         <section>
             <p class="subtitle reveal reveal-up">Mesa de Honor</p>
             <h2 class="text-silver reveal reveal-up d-1">Autoridades</h2>
@@ -600,6 +677,7 @@
             </div>
         </section>
 
+        <!-- Docentes Titulares -->
         <section>
             <p class="subtitle reveal reveal-up">Nuestros Guías</p>
             <h2 class="text-silver reveal reveal-up d-1">Docentes Titulares</h2>
@@ -611,6 +689,7 @@
             </div>
         </section>
 
+        <!-- Lista de Alumnos -->
         <section>
             <h2 class="text-silver reveal reveal-up">Graduados</h2>
             <p class="reveal reveal-up d-1" style="margin-bottom: 40px; font-size: 1.3rem;">Generación<br>2020 - 2026</p>
@@ -740,6 +819,7 @@
             </div>
         </section>
 
+        <!-- Confirmación de Asistencia -->
         <section>
             <p class="subtitle reveal reveal-up">RSVP</p>
             <h2 class="text-silver reveal reveal-up d-1">Confirmación de Asistencia</h2>
@@ -754,6 +834,7 @@
             </div>
         </section>
 
+        <!-- Galería Compartida -->
         <section>
             <p class="subtitle reveal reveal-up">Memorias</p>
             <h2 class="text-silver reveal reveal-up d-1">Galería de Recuerdos</h2>
@@ -762,9 +843,10 @@
             <a href="https://drive.google.com/drive/folders/1KqHzS00FdDp6aeGaTX3WmUmie99CnpvG?usp=sharing" target="_blank" class="btn-primary btn-outline reveal reveal-up d-4" style="margin-top: 25px;">Compartir Fotografías</a>
         </section>
 
+        <!-- Pases de Acceso -->
         <section>
             <div class="vip-ticket reveal reveal-up">
-                <img src="assets/logo.png" alt="Logo" style="max-width: 80px; margin-bottom: 20px;" onerror="this.style.display='none'">
+                <img src="assets/logo.png" alt="Logo" style="max-width: 110px; margin-bottom: 20px;" onerror="this.style.display='none'">
                 <p class="subtitle" style="margin-bottom: 5px;">Pase Oficial</p>
                 <h3 class="text-silver" style="font-size: 2.2rem; margin-top: 0; text-transform: uppercase;">Invitado de Honor</h3>
                 <p style="font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--text-muted); margin-top: 15px; font-style: italic;">Válido para la Ceremonia de Clausura</p>
@@ -772,16 +854,19 @@
             <p class="reveal reveal-up d-1" style="font-size: 0.95rem; color: var(--text-muted); letter-spacing: 1px;">FAVOR DE MOSTRAR ESTA INVITACIÓN DIGITAL EN EL ACCESO.</p>
         </section>
 
+        <!-- Marca de Agua Final -->
         <div class="watermark reveal reveal-up">
             Invytia Premium
         </div>
 
     </div>
 
+    <!-- Scripts -->
     <script>
         const audio = document.getElementById("bg-music");
         const musicBtn = document.getElementById("music-control");
         let isPlaying = false;
+        let countdownInterval;
 
         // Función de apertura (Fuerza el sonido inmediatamente con el evento Clic)
         function abrirInvitacion() {
@@ -808,8 +893,39 @@
                     
                     iniciarAnimaciones();
                     crearDestellos();
+                    iniciarCountdown();
                 }, 800);
             }, 500);
+        }
+
+        // --- CUENTA REGRESIVA ---
+        function iniciarCountdown() {
+            // Fecha del evento: 15 de Julio 2026 a las 08:40 AM
+            const eventDate = new Date("July 15, 2026 08:40:00").getTime();
+            
+            countdownInterval = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = eventDate - now;
+
+                if (distance < 0) {
+                    clearInterval(countdownInterval);
+                    document.getElementById("days").innerText = "00";
+                    document.getElementById("hours").innerText = "00";
+                    document.getElementById("minutes").innerText = "00";
+                    document.getElementById("seconds").innerText = "00";
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+                document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+                document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+                document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+            }, 1000);
         }
 
         // Funciones del Modal (Lightbox) para imágenes
